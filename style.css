@@ -48,3 +48,34 @@ body {
     font-size: 30px; 
     margin: 0 10px;
 }
+.landing {
+    background-image: url('images/title_page_image.png');
+    background-size: contain;         
+    background-repeat: no-repeat;         
+    background-position: center;         
+    height: 90vh;                         
+    display: flex;
+    opacity: 0.8; 
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: black;
+    position: relative;
+}
+.landing::before {
+    background-color: rgba(255, 255, 255, 0.3); /* semi-transparent white */
+}
+.landing-content {
+    position: relative;
+    z-index: 1;
+    max-width: 700px;
+    padding: 20px;
+}
+.landing h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+.landing p {
+    font-size: 20px;
+}
+
