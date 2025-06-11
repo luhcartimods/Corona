@@ -1,28 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Design</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Design Your Bottle</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     <nav class="navbar">
         <ul>
             <div class="left">
-                <li><a href="profile.html"><i class="fa-solid fa-circle-user fa-xl icon"></i></a></li>
+                <li><a href="profile.html"><i class="fa-solid fa-circle-user icon" title="Profile"></i></a></li>
             </div>
             <div class="center">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="mission.html">Our Mission</a></li>
-                <li><a href="design.html">Design</a></li>
+                <li><a href="design.html">Design Your Own Bottle!</a></li>
                 <li><a href="organic.html">Organic Drinks</a></li>
             </div>
             <div class="right">
-                <li><a href="cart.html"><i class="fa-solid fa-cart-shopping fa-xl icon"></i></a></li>
+                <li><a href="cart.html"><i class="fa-solid fa-cart-shopping icon" title="Cart"></i></a></li>
             </div>
         </ul>
     </nav>
+    <input type="file" id="imageUploader" accept="image/*" style="display: none;">
+    <main class="editor-container">
+        <div class="toolbar">
+            <button id="addImageBtn" title="Add Image"><i class="fa-solid fa-image"></i></button>
+            <button id="addTextBtn" title="Add Text"><i class="fa-solid fa-font"></i></button>
+            <input type="range" id="zoomSlider" min="0.5" max="2" step="0.1" value="1" title="Zoom">
+            <button id="toggleEdit" title="Edit Mode"><i class="fa-solid fa-pen-to-square"></i></button>
+            <button id="rotateBtn" title="Rotate"><i class="fa-solid fa-rotate"></i></button>
+            <button id="clearBtn" title="Clear"><i class="fa-solid fa-trash"></i></button>
+            <button id="downloadBtn" title="Download"><i class="fa-solid fa-download"></i></button>
+            <div class="share-dropdown">
+                <button class="share-btn" title="Share"><i class="fa-solid fa-share-nodes"></i> Share</button>
+                <div class="dropdown-content">
+                    <a href="#">Copy Link</a>
+                    <a href="#">Email</a>
+                    <a href="#">Social Media</a>
+                </div>
+            </div>
+            <button class="add-to-cart" title="Add to Cart">Add to Cart</button>
+            <div class="total-display" title="Total Price">
+                Total: $<span id="totalAmount">0.00</span>
+            </div>
+        </div>
+        <section class="canvas-area">
+            <div class="bottle-editor" id="editor" contenteditable="false">
+                <img src="images/bottle.png" id="bottle" alt="Bottle">
+            </div>
+        </section>
+    </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/interact.js/1.10.11/interact.min.js"></script>
+    <script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script>
+        const pricePerImage = 1.00;
+        const pricePerText = 0.50;
+
+        function updateTotal() {
+            const imageCount = document.querySelectorAll('.custom-element img').length;
+            const textCount = document.querySelectorAll('.custom-element div').length;
+            const total = (imageCount * pricePerImage) + (textCount * pricePerText);
+            document.getElementById('totalAmount').textContent = total.toFixed(2);
+        }
+
+        const observer = new MutationObserver(updateTotal);
+        observer.observe(document.getElementById('editor'), { childList: true, subtree: true });
+        document.addEventListener('DOMContentLoaded', updateTotal);
+    </script>
 </body>
 </html>

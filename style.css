@@ -1,6 +1,9 @@
 body {
+    font-family: 'Poppins', sans-serif;
+    background: #f4f4f4;
+    color: #333;
     margin: 0;
-    font-family: Arial, sans-serif;
+    padding: 0;
 }
 .navbar {
     background-color: #919191;
@@ -63,7 +66,7 @@ body {
     position: relative;
 }
 .landing::before {
-    background-color: rgba(255, 255, 255, 0.3); /* semi-transparent white */
+    background-color: rgba(255, 255, 255, 0.3); 
 }
 .landing-content {
     position: relative;
@@ -78,4 +81,226 @@ body {
 .landing p {
     font-size: 20px;
 }
+.mission {
+    padding: 60px 20px;
+    text-align: center;
+    background-color: #f9f9f9;
+}
 
+.mission-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.mission h1 {
+    font-size: 42px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.mission p {
+    font-size: 18px;
+    color: #444;
+    line-height: 1.6;
+    margin-bottom: 40px;
+}
+
+.logo {
+    width: 220px;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+@media (max-width: 600px) {
+    .logo {
+        width: 140px;
+    }
+}
+.engaging-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+.container {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.editor-container {
+    display: flex;
+    height: calc(100vh - 80px);
+}
+
+.sidebar {
+    background-color: #d9d9d9;
+    width: 100px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.sidebar button {
+    background: none;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    color: #333;
+    text-align: center;
+}
+.sidebar i {
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+
+.canvas-area {
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    padding: 0;
+    width: 100%;
+    max-width: 800px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.bottle-editor img {
+    max-height: 90vh;
+    max-width: 100%;
+}
+
+.bottle-editor img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+#zoomSlider {
+    margin-top: 10px;
+    width: 200px;
+}
+
+button {
+    margin: 10px 5px;
+    padding: 8px 12px;
+    background-color: #dcdcdc;
+    border: none;
+    cursor: pointer;
+    border-radius: 6px;
+}
+button:hover {
+    background-color: #bbb;
+}
+
+.share-dropdown {
+    position: relative;
+    display: inline-block;
+    margin: 10px;
+}
+.share-btn, .add-to-cart {
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+.share-btn:hover {
+    background-color: #ff8c42;
+}
+.add-to-cart:hover {
+    background-color: #218838;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+.share-dropdown:hover .dropdown-content {
+    display: block;
+}
+.dropdown-content a {
+    color: black;
+    padding: 10px 14px;
+    display: block;
+    text-decoration: none;
+}
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+.add-to-cart {
+    background-color: #28a745;
+    color: white;
+    font-size: 18px;
+    margin-top: 15px;
+}
+.custom-element {
+    user-select: none;
+    touch-action: none;
+    z-index: 10;
+}
+.editor-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: calc(100vh - 80px);
+    padding: 10px;
+}
+.toolbar {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(12px);
+    border-radius: 12px;
+    padding: 20px;
+    margin: 20px 0;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+}
+
+.toolbar button {
+    background: #fff;
+    border: 1px solid #ddd;
+    padding: 10px 12px;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+.toolbar button:hover {
+    background: #99f2c8;
+    color: #fff;
+    transform: scale(1.05);
+}
+.sidebar {
+    display: none; 
+}
+.custom-element[contenteditable="true"] {
+    outline: none;
+}
+.edit-border {
+    border: 1px dashed #000;
+    padding: 4px;
+    background-color: rgba(255,255,255,0.6);
+}
+button[title]::after,
+div[title]::after {
+    content: attr(title);
+    position: absolute;
+    background: #000;
+    color: #fff;
+    font-size: 12px;
+    padding: 5px;
+    border-radius: 5px;
+    top: -35px;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    display: none;
+    z-index: 100;
+}
+
+button[title]:hover::after,
+div[title]:hover::after {
+    display: block;
+}
